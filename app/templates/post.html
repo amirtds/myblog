@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ post.title }}</title>
+    <link
+      href="{{ url_for('static', filename='styles.css') }}"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100 text-gray-900">
+    <header class="bg-blue-600 p-4 text-white text-center">
+      <h1 class="text-3xl font-bold">{{ post.title }}</h1>
+    </header>
+    <main class="p-4">
+      <div class="container mx-auto bg-white p-6 rounded-lg shadow-md">
+        <img
+          src="{{ url_for('static', filename='images/' + post.url + '.webp') }}"
+          alt="{{ post.title }}"
+          class="w-full h-96 object-cover rounded-t-lg"
+        />
+        <article class="prose lg:prose-xl mt-4">
+          {{ post.content | safe }}
+        </article>
+      </div>
+      <div class="text-center mt-4">
+        <a
+          href="{{ url_for('main.index') }}"
+          class="text-blue-600 mt-2 block hover:underline"
+          >&larr; Back to home</a
+        >
+      </div>
+    </main>
+    <footer class="bg-blue-600 p-4 text-white text-center mt-4">
+      <p>&copy; 2024 My Blog</p>
+    </footer>
+  </body>
+</html>
