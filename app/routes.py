@@ -35,3 +35,9 @@ def post(post_url):
         return render_template('post.html', post=post)
     else:
         return "Post not found", 404
+
+# Introduce a route that causes an error
+@bp.route('/cause-error')
+def cause_error():
+    # This will cause a ZeroDivisionError
+    1 / 0
